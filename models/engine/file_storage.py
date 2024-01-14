@@ -58,7 +58,6 @@ class FileStorage:
     def delete(self, obj=None):
         if obj is None:
             return
-
         ident = obj.__class__.__name__ + '.' + obj.id
         if ident in self.__objects:
             del self.__objects[ident]
