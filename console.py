@@ -116,13 +116,6 @@ class HBNBCommand(cmd.Cmd):
     def do_create(self, args):
         """to split the Base name from given Parameters"""
         new = args.partition(" ")
-        """split between parameters"""
-        parameters = new[2].split(" ")
-        """to split key value in given parameters"""
-        new_list = []
-        for para in parameters:
-            keyvalue = para.split("=")
-            new_list.append(keyvalue)
 
         """ Create an object of any class"""
         if not new[0]:
@@ -131,11 +124,29 @@ class HBNBCommand(cmd.Cmd):
         elif new[0] not in HBNBCommand.classes:
             print("** class doesn't exist **")
             return
+        """split between parameters"""
+        parameters = new[2].split(" ")
+        """to split key value in given parameters"""
+        new_list = []
+        for para in parameters:
+            keyvalue = para.split("=")
+            new_list.append(keyvalue)
+        new_dict = {}
         for key, value in new_list:
-            print(new[0])
-            new[0].key = value
-        new_instance = HBNBCommand.classes[new[0]]()
-        storage.save()
+            if value[0] == '"' == value[-1]:
+                value = value[1:-1].replace("_", " ")
+            else:
+                try:
+                    value = eval(value)
+                except Exception:
+                    continue
+            new_dict[key] = value
+
+        if new_dict == {}:
+            new_instance = HBNBCommand.classes[new[0]]()
+        else:
+            new_instance = HBNBCommand.classes[new[0]](**new_dict)
+        storage.new(new_instance)
         print(new_instance.id)
         storage.save()
 
