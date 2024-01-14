@@ -31,7 +31,7 @@ class DBStorage:
 			'mysql+mysqldb://{}:{}@{}/{}'.format(user,
 											   password,
 											   host,
-											   database), pool_pre_ping=True))
+											   database), pool_pre_ping=True)
 		
 		if env == 'test':
 			Base.metadata.drop_all(self.__engine)
