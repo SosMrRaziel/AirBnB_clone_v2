@@ -56,6 +56,7 @@ class FileStorage:
             pass
 
     def delete(self, obj=None):
+        """delete obj from __objects if its inside"""
         if obj is None:
             return
         ident = obj.__class__.__name__ + '.' + obj.id
