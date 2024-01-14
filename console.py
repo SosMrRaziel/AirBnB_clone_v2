@@ -132,7 +132,6 @@ class HBNBCommand(cmd.Cmd):
             keyvalue = para.split("=")
             new_list.append(keyvalue)
         new_dict = {}
-        print(new_list)
         if new_list != [['']]:
             for key, value in new_list:
                 if value[0] == '"' == value[-1]:
@@ -143,7 +142,7 @@ class HBNBCommand(cmd.Cmd):
                     except Exception:
                         continue
                 new_dict[key] = value
-        print(new_dict)
+
         if new_dict == {}:
             new_instance = HBNBCommand.classes[new[0]]()
         else:
