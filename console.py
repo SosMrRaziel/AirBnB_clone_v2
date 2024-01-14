@@ -118,6 +118,7 @@ class HBNBCommand(cmd.Cmd):
         new = args.partition(" ")
 
         """ Create an object of any class"""
+        """ Create an object of any class"""
         if not new[0]:
             print("** class name missing **")
             return
@@ -140,13 +141,13 @@ class HBNBCommand(cmd.Cmd):
                     value = eval(value)
                 except Exception:
                     continue
-                new_dict[key] = value
+            new_dict[key] = value
 
         if new_dict == {}:
             new_instance = HBNBCommand.classes[new[0]]()
         else:
             new_instance = HBNBCommand.classes[new[0]](**new_dict)
-            storage.new(new_instance)
+        storage.new(new_instance)
         print(new_instance.id)
         storage.save()
 

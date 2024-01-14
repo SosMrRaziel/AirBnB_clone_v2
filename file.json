@@ -1,8 +1,25 @@
 {
-    "Place.f5c507f5-561c-485d-800a-3f44bf2c6103": {
-        "id": "f5c507f5-561c-485d-800a-3f44bf2c6103",
-        "created_at": "2024-01-14T09:42:34.992194",
-        "updated_at": "2024-01-14T09:42:34.992194",
+    "State.882a583a-6404-4a11-b74f-25c5313b8481": {
+        "id": "882a583a-6404-4a11-b74f-25c5313b8481",
+        "created_at": "2024-01-14T09:52:55.601377",
+        "updated_at": "2024-01-14T09:52:55.601377",
+        "name": "California",
+        "__class__": "State"
+    },
+    "State.998e34b8-c872-4d7e-972e-50fca92b5d94": {
+        "id": "998e34b8-c872-4d7e-972e-50fca92b5d94",
+        "created_at": "2024-01-14T09:52:55.601695",
+        "updated_at": "2024-01-14T09:52:55.601695",
+        "name": "Arizona",
+        "__class__": "State"
+    },
+    "Place.63ee4471-90fb-4807-9ade-a017e4d096bb": {
+        "id": "63ee4471-90fb-4807-9ade-a017e4d096bb",
+        "created_at": "2024-01-14T09:52:55.602202",
+        "updated_at": "2024-01-14T09:52:55.602202",
+        "city_id": "0001",
+        "user_id": "0001",
+        "name": "My little house",
         "number_rooms": 4,
         "number_bathrooms": 2,
         "max_guest": 10,
