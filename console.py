@@ -132,21 +132,23 @@ class HBNBCommand(cmd.Cmd):
             keyvalue = para.split("=")
             new_list.append(keyvalue)
         new_dict = {}
-        for key, value in new_list:
-            if value[0] == '"' == value[-1]:
-                value = value[1:-1].replace("_", " ")
-            else:
-                try:
-                    value = eval(value)
-                except Exception:
-                    continue
-            new_dict[key] = value
-
+        print(new_list)
+        if new_list != [['']]:
+            for key, value in new_list:
+                if value[0] == '"' == value[-1]:
+                    value = value[1:-1].replace("_", " ")
+                else:
+                    try:
+                        value = eval(value)
+                    except Exception:
+                        continue
+                new_dict[key] = value
+        print(new_dict)
         if new_dict == {}:
             new_instance = HBNBCommand.classes[new[0]]()
         else:
             new_instance = HBNBCommand.classes[new[0]](**new_dict)
-        storage.new(new_instance)
+            storage.new(new_instance)
         print(new_instance.id)
         storage.save()
 
