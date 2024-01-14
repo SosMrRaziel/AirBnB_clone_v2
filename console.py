@@ -132,15 +132,14 @@ class HBNBCommand(cmd.Cmd):
             keyvalue = para.split("=")
             new_list.append(keyvalue)
         new_dict = {}
-        if new_list != [['']]:
-            for key, value in new_list:
-                if value[0] == '"' == value[-1]:
-                    value = value[1:-1].replace("_", " ")
-                else:
-                    try:
-                        value = eval(value)
-                    except Exception:
-                        continue
+        for key, value in new_list:
+            if value[0] == '"' == value[-1]:
+                value = value[1:-1].replace("_", " ")
+            else:
+                try:
+                    value = eval(value)
+                except Exception:
+                    continue
                 new_dict[key] = value
 
         if new_dict == {}:
