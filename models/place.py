@@ -2,7 +2,10 @@
 """ Place Module for HBNB project """
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String, ForeignKey, Integer, Float, Table
+from models.amenity import Amenity
 from sqlalchemy.orm import relationship
+from os import getenv
+import models
 
 
 place_amenity = Table('place_amenity', Base.metadata,
@@ -25,5 +28,26 @@ class Place(BaseModel, Base):
     latitude = Column(Float, nullable=True)
     longitude = Column(Float, nullable=True)
     reviews = relationship("Review", backref="place", cascade="delete")
-#    amenities = relationship("Amenity", secondary="place_amenity", viewonly=False)
+    amenities = relationship("Amenity", secondary="place_amenity", viewonly=False)
     amenity_ids = []
+
+    if getenv("HBNB_TYPE_STORAGE") != "db":
+        @property
+        def amenities(self):
+            """
+            get the list of Amenities linked to place
+            """
+            my_amenities = []
+            all_instan_amenities = list(models.storage.all(Amenity).values())
+            for amenity in all_instan_amenities:
+                if amenity.id in self.amenity_ids:
+                    my_amenities.append(amenity)
+            return my_amenities
+
+        @amenities.setter
+        def amenities(self, value):
+            """set amenities that handles append method for adding
+            an Amenity.id to the attribute amenity_ids
+            """
+            if isinstance(value, "Amenity"):
+                self.amenity_ids.append(value.id)
