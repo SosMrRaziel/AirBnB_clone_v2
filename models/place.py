@@ -37,12 +37,12 @@ class Place(BaseModel, Base):
             """
             get the list of Amenities linked to place
             """
-            my_amenities = []
-            all_instan_amenities = list(models.storage.all(Amenity).values())
-            for amenity in all_instan_amenities:
+            her_amenities = []
+            all_aminities = list(models.storage.all(Amenity).values())
+            for amenity in all_aminities:
                 if amenity.id in self.amenity_ids:
-                    my_amenities.append(amenity)
-            return my_amenities
+                    her_amenities.append(amenity)
+            return her_amenities
 
         @amenities.setter
         def amenities(self, value):
