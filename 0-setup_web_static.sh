@@ -4,7 +4,7 @@ sudo apt-get update
 sudo apt-get -y install nginx
 
 #copy default
-cp /etc/nginx/sites-available/default /etc/nginx/sites-available/origine
+cp -n /etc/nginx/sites-available/default /etc/nginx/sites-available/origine
 
 #create folders if not exist
 sudo mkdir -p /data/
