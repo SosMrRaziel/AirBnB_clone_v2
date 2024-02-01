@@ -69,16 +69,6 @@ def do_deploy(archive_path):
     return True
 
 
-""" a Fabric script (based on the file 2-do_deploy_web_static.py)
-that creates and distributes an archive to your web servers,
-using the function deploy:
-
-Keyword arguments:
-Call the do_pack() -- function and store the path of the created archive
-Return: False if no archive has been created
-"""
-
-
 def deploy():
     """creates and distributes to the web servers"""
     # Call the do_pack() function and store the path of the created archive
