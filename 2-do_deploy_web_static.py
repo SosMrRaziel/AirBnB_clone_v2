@@ -32,5 +32,4 @@ def do_deploy(archive_path):
     run("rm -rf {}".format(current_path))
     # Create a new the symbolic link /data/web_static/current on the web server
     run("ln -s {} {}".format(release_path, current_path))
-    # Return True if all operations have been done correctly
     return True
