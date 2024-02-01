@@ -5,8 +5,6 @@ import os
 from os.path import exists
 
 
-
-
 """Fabric script that generates a .tgz archive from
 the contents of the web_static folder"""
 
@@ -88,8 +86,8 @@ def deploy():
     # Return False if no archive has been created
     if archive_pack is None:
         return False
-    #Call the do_deploy(archive_path) function,
-            #using the new path of the new archive
+    # Call the do_deploy(archive_path) function,
+    # using the new path of the new archive
     result = do_deploy(archive_pack)
     # Return the return value of do_deploy
     return result
