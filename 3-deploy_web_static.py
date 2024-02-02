@@ -72,9 +72,9 @@ def do_deploy(archive_path):
 def deploy():
     """creates and distributes to the web servers"""
     # Call the do_pack() function and store the path of the created archive
-    archive_pack = do_pack()
+    archive_path = do_pack()
     # Return False if no archive has been created
-    if archive_pack is None:
-        return False   
+    if archive_path is None:
+        return False
     # Return the return value of do_deploy
-    return  do_deploy(archive_pack)
+    return do_deploy(archive_path)
