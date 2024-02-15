@@ -63,3 +63,7 @@ class FileStorage:
         if ident in self.__objects:
             del self.__objects[ident]
         self.save()
+
+    def close(self):
+        """ Call self reload."""
+        self.reload()
