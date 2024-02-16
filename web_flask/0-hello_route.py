@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """ Flask app that return hello HBNB"""
 from flask import Flask
 
