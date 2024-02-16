@@ -64,6 +64,6 @@ class FileStorage:
             del self.__objects[ident]
         self.save()
 
-    # def close(self):
-    #     """ Call self reload."""
-    #     self.reload()
+    def close(self):
+        """ Call self reload."""
+        self.reload()
