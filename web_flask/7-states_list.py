@@ -5,6 +5,7 @@
 from models import storage
 from flask import Flask
 from flask import render_template
+from models.state import State
 
 app = Flask(__name__)
 
@@ -22,7 +23,7 @@ def states_list():
     - UL: with the list of all State
     - LI: <state.id>: <B><state.name></B>
     """
-    states = storage.all("State")
+    states = storage.all(State)
     return render_template("7-states_list.html", states=states)
 
 
