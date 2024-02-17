@@ -50,10 +50,6 @@
 	display: inline-block;
 }
 
-.amenities:hover .popover {
-    display: table-cell;
-}
-
 ul {
 	list-style-type: none;
 	padding: 0px;
