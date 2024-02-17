@@ -3,28 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HBNB</title>
-</head>
-<body>
-    <h1>States</h1>
-    {% if id %}
-        {% if states.get(id) %}
-            <h1>State: {{ states[id].name }}</h1>
-            <h3>Cities:</h3>
-            <ul>
-                {% for city in states[id].cities %}
-                    <li>{{ city.id }}: <b>{{ city.name }}</b></li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            <h1>Not found!</h1>
-        {% endif %}
-    {% else %}
-        <ul>
-            {% for state in states.values() | sort(attribute='name') %}
-                <li>{{ state.id }}: <b>{{ state.name }}</b></li>
+    <TITLE>HBNB</TITLE>
+</HEAD>
+
+<BODY>
+    {% if states %}
+        <H1>States</H1>
+        <UL>
+        {% for state in states.values()|sort(attribute="name") %}
+            <LI>{{ state.id }}: <B>{{ state.name }}</B></LI>
+        {% endfor %}
+        </UL>
+    {% elif state is defined %}
+        <H1>State: {{ state.name }}</H1>
+        <h3>Cities:</h3>
+        <UL>
+            {% for city in state.cities|sort(attribute="name") %}
+                <LI>{{ city.id }}: <b>{{ city.name }}</b></LI>
             {% endfor %}
-        </ul>
+        </UL>
+    {% else %}
+        <H1>Not found!</H1>
     {% endif %}
-</body>
-</html>
+</BODY>
+</HTML>
